@@ -1,5 +1,5 @@
 #hero-welcomeText{
-	font-size:30px;
+	font-size:20px;
 	font-weight:300;
 	font-family: Open Sans;
 	text-align: center;
@@ -7,6 +7,7 @@
 	width: 100%;
 	position:absolute;
 	top:50%;
+	left:0px;
 	margin-top:-200px;
 }
 
@@ -15,6 +16,28 @@
 		font-weight:400;
 	}
 	.smallWord{
-		font-size:12px;
+		font-size:10px;
 		font-weight:400;
 	}
+
+	.recentHeader{
+		position:absolute;
+		bottom:10px;
+		left:0px;
+		width:100%;
+		text-align: center;
+		font-family: Open Sans;
+		font-size:10px;
+		z-index: 100;
+		color:#FFF;
+	}
+
+#postsCover{
+	background-color:D64541;
+	width:100%;
+	height: 100%;
+	position:absolute;
+	top:90%;
+	left:0px;
+	
+}
