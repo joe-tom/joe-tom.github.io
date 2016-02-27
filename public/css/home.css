@@ -1,4 +1,11 @@
 #hero-welcomeText{
-	font-size:12px;
-	font-weight: 
+	font-size:40px;
+	font-weight:300;
+	font-family: Open Sans;
+	text-align: center;
 }
+
+	#hero-largeWord{
+		font-size:100px;
+		font-weight:400;
+	}
