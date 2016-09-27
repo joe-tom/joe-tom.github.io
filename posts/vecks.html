@@ -3,41 +3,6 @@
 		<title>Veck - API & Examples</title>
 	</head>
 	<body>
-	<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">			<span style="color: #AA22FF; font-weight: bold">var</span> schema <span style="color: #666666">=</span> []
-			<span style="color: #AA22FF; font-weight: bold">var</span> v <span style="color: #666666">=</span> Veck
-
-			<span style="color: #AA22FF; font-weight: bold">var</span> document_1 <span style="color: #666666">=</span> <span style="color: #BB4444">&quot;The big cat sat on the big mat and had a large hat&quot;</span>
-			<span style="color: #AA22FF; font-weight: bold">var</span> bag_1 <span style="color: #666666">=</span> {}
-
-
-			<span style="color: #008800; font-style: italic">// This will turn the paragraph, into an array of words e.g. [&#39;the&#39;,&#39;big&#39;,&#39;cat&#39;,&#39;sat&#39;,&#39;on&#39;,&#39;the&#39;,&#39;mat&#39; ...]</span>
-			<span style="color: #AA22FF; font-weight: bold">var</span> documentArr <span style="color: #666666">=</span> document_1
-			.toLowerCase() <span style="color: #008800; font-style: italic">// Make all the words in this document lowercase</span>
-			.replace(<span style="color: #BB6688">/[^a-z ]/</span>,<span style="color: #BB4444">&#39;&#39;</span>) <span style="color: #008800; font-style: italic">// Get rid of all non (letter or space) characters</span>
-			.split(<span style="color: #BB4444">&#39; &#39;</span>) <span style="color: #008800; font-style: italic">// Split into an array by every space</span>
-
-			<span style="color: #008800; font-style: italic">// Get rid of any null characters (this occurs when there are double spaces in the document)</span>
-			documentArr.filter((i) <span style="color: #666666">=&gt;</span> (i))
-
-			<span style="color: #008800; font-style: italic">//The following will generate the &quot;bag&quot; i.e. the histogram of term frequencies</span>
-			<span style="color: #008800; font-style: italic">//e.g {&#39;the&#39;: 2,&#39;big&#39;: 1,&#39;cat&#39;: 1,&#39;sat&#39;: 1,&#39;on&#39;: 1,&#39;mat&#39;: 1 ...}</span>
-			.forEach((i) <span style="color: #666666">=&gt;</span> {
-				<span style="color: #008800; font-style: italic">// If this word has never been seen before, add it to the vector schema</span>
-				<span style="color: #AA22FF; font-weight: bold">if</span> (schema.indexOf(i) <span style="color: #666666">==</span> <span style="color: #666666">-1</span>) {
-					schema.push(i)
-				}
-				<span style="color: #008800; font-style: italic">// If this word is already in the bag of words, increase the frequency, otherwise set it to one</span>
-				bag[i] <span style="color: #666666">&amp;&amp;</span> bag[i]<span style="color: #666666">++</span> <span style="color: #666666">||</span> bag[i] <span style="color: #666666">=</span> <span style="color: #666666">1</span>
-			})
-
-			<span style="color: #008800; font-style: italic">// Now we can create the Veck vector for that word</span>
-			<span style="color: #008800; font-style: italic">// Essentially the schema is an array of all the words in the entire corpus.</span>
-			<span style="color: #008800; font-style: italic">// Now we&#39;re substituting the term frequency from our bag into the schema, thus making a vector of frequencies</span>
-			<span style="color: #008800; font-style: italic">// e.g.</span>
-			<span style="color: #008800; font-style: italic">// schema = [&#39;world&#39;,&#39;earth&#39;,&#39;mars&#39;,&#39;the&#39;,&#39;big&#39;,&#39;cat&#39;,&#39;sat&#39;,&#39;on&#39;]</span>
-			<span style="color: #008800; font-style: italic">// vector = [0,0,0,2,1,1,1,1]</span>
-			<span style="color: #AA22FF; font-weight: bold">var</span> doc1_vector <span style="color: #666666">=</span> v(schema.map((word) <span style="color: #666666">=&gt;</span> (bag_1[word] <span style="color: #666666">||</span> <span style="color: #666666">0</span>)))
-</pre></div>
 
 		<script>
 			var schema = []
