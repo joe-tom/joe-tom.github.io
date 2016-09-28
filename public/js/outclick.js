@@ -1,0 +1,6 @@
+/**
+ * Version: 0.0.1
+ * Author: Joseph Thomas
+ */
+(function(a){var d=[{listener:null,exceptions:[]}],g=Node.prototype.addEventListener,h=Node.prototype.removeEventListener;Object.defineProperty(Node.prototype,"onoutclick",{set:function(c){d[0]={exceptions:[this],listener:c};return c}});a.Node.prototype.addEventListener=function(c,e,b){if("outclick"==c)return b=b||[],b.push(this),d.push({exceptions:b,listener:e}),e;g.apply(this,arguments)};a.document.addEventListener("click",function(c){for(var e=d.length;e--;){for(var b=d[e],a=!1,f=b.exceptions.length;f--;)if(b.exceptions[f].contains(c.target)){a=
+!0;break}a||b.listener&&b.listener(c)}});a.Node.prototype.removeEventListener=function(c,e){if("outclick"==c)for(var b=d.length;b--;){var a=d[b];if(a.exceptions[0]==this&&a.listener.toString()==e.toString()){d.splice(b,1);break}}else h(this,arguments)};a=document.querySelectorAll("[outclick]");[].forEach.call(a,function(c){var a=c.getAttribute("outclick"),a=Function(a);d.push({listener:a,exceptions:[c]})})})(window);

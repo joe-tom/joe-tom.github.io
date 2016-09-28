@@ -46,3 +46,25 @@ EVENTS.forEach(function (event, i) {
 
 
 /** The menu code ... */
+
+var Menu = {
+  menu: document.getElementById('sideMenu'),
+  btn: document.getElementById('menuBtn')
+}
+
+Menu.show = function () {
+  Velocity(Menu.menu,'fadeIn',{complete: function () {
+    Menu.menu.onoutclick = function () {
+      Menu.hide()
+    }
+  }})
+}
+
+Menu.hide = function () {
+  Velocity(Menu.menu,'fadeOut')
+  Menu.menu.onoutclick = null
+}
+
+Menu.btn.addEventListener('click', function () {  
+  Menu.show()
+})

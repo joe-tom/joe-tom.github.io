@@ -9,6 +9,8 @@
 	padding: 7.5px;
 	box-sizing: border-box;
 	cursor: pointer;
+	z-index: 1000;
+	background-color: #FFF;
 }
 	#menuBtn:hover{
 		box-shadow: 0px 0px 2px #DDD;
@@ -41,6 +43,8 @@
 	top:50%;
 	left:0px;
 	margin-top:-200px;
+	padding: 0 10px;
+	box-sizing: border-box;
 }
 
 	.largeWord{
