@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,100' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Merriweather:400,600,300,100' rel='stylesheet' type='text/css'>
+		<style>
+			#hero__board{
+				height: 200px;
+				width: 100%;
+				border-bottom: 1px solid #DDD;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background-color: #999;
+			}
+				#hero__title{
+					width: 100%;
+					margin-top: 50px;
+					text-align: center;
+					font-family: Open Sans;
+					font-size: 40px;
+					font-weight: 100;
+					color: #FFF;
+				}
+				#main__textWrap{
+					font-family: Merriweather;
+					margin: auto;
+					margin-top: 300px;
+					left: 0px;
+					padding: 50px;
+					text-align: center;
+					width: 100%;
+					max-width: 700px;
+
+				}
+					.text__header{
+						font-weight: 800;
+						font-size: 14px;
+						width: 100%;
+						text-align: left;
+					}
+						.text__header--sub{
+							font-size: 12px;
+						}
+					.text__body{
+						font-size: 13px;
+						line-height: 19.5px;
+						font-weight: 400;
+						text-align: left;
+					}
+						.text__body::before{
+							content: '\00a0\00a0\00a0\00a0\00a0';
+						}
+						.text__body--third{
+							width: 30%;
+							margin: 0 1%;
+							display: inline-block;
+							text-align: center;
+						}
+							.text__body--third::before{
+								content: "";
+							}
+					.text__code{
+						border-radius: 5px;
+						overflow: hidden;
+						text-align: left;
+						width: 90%;
+						margin: auto;
+					}
+		</style>
+	</head>
+	<body>
+		<div id="hero__board">
+			<div id="hero__title">TF-IDF in veck.js</div>
+		</div>
+		<div id="main__textWrap">
+			<div class="text__header">Intro</div>
+			<p class="text__body">Let's supposed we'd like to build a search engine for a bunch of documents. We'd like to be able to submit a query, a series of words and have it return documents which have those words inside them. How would we do this? Well, initially you might think, we can jjust match all the documents that have words that match the words in our query. Then, we can sort them by how often those terms appear. If you thought that, you're on the right track.  
+			</p>
+			<p class="text__body">This is the basis of the first half of our TF-IDF, i.e. TF, term-frequency. Simply put, what we're going to do is represent our documents as vectors of terms and their frequencies. Then, we're going to match the terms in our queries to that in the documents and we shall sort them by their frequencies.</p>
+			<div class="text__header">TF Example</div>
+			<p class="text__body">Suppose we have the following documents:</p>
+			<br>
+			<p class="text__body text__body--third">
+				<span class="text__header text__header--sub">DOCUMENT 1</span>
+				<br>
+				<br>
+				Chocolate… It’s been described as one of life’s sinful little pleasures. Could something that tastes so delicious actually be good for you? Over the years we have all heard many negative claims about chocolate. But in fact, giving into those chocolate cravings may be better for you than you thought. Besides tasting good, chocolate is beneficial to your body as well!
+			</p>
+			<p class="text__body text__body--third">
+				<span class="text__header text__header--sub">DOCUMENT 2</span>
+				<br>
+				<br>Chocolate. There are few foods that people feel as passionate about, a passion that goes beyond a love for the "sweetness" of most candies or desserts, after all, few people crave caramel, whipped cream, or bubble gum. Chocolate is, well, different. Chocolate, as few doctor s might say is not always harmful to us, and neither is it all that good. 
+			</p>
+			<p class="text__body text__body--third">
+				<span class="text__header text__header--sub">DOCUMENT 3</span>
+				<br>
+				<br>
+				Chocolate is a typically sweet, usually brown, food preparation of Theobroma cacao seeds, roasted and ground, often flavored, as with vanilla. It is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods. Cacao has been cultivated by many cultures for at least three millennia in Mesoamerica.
+			</p>
+			<br>
+			<br>
+			<p class="text__body">
+				We  will now use a bit of JS to make make a simple bag of words and represent all these as vectors. 
+			</p>
+			<div class="text__code"></div>
+			<p class="text__body">
+				Cool, now we have vector representations of term frequencies accross all the documents. If you are lost, here's a simple way to explain things.
+			</p>
+			<p class="text__body">
+				suppose, we represent the words, 'the','and','he' in an vector. It'd look like this:
+				<br><br>
+				['the','and','he']
+				<br><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now, each document has a specific amount of these words, so the vector representation for each document, is that amount. i.e. if Document 1 has 4 the's, 2 and's and 5 he's. It will have a vector representation like this.
+				<br><br>
+				[4, 2, 5]
+				<br><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is the bag of words model. That is what the above script did, only for all the words in the entire document set.
+			</p>
+			<script src="/public/js/demos__tfidf.js"></script>
+		</div>
+	</body>
+</html>
