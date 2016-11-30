@@ -21,13 +21,20 @@ body{
 		margin-top: 10px;
 	}
 	.demo__wrap{
+		cursor: pointer;
 		box-shadow: 0px 1px 1px #BBB;
 		height: 200px;
 		width: 180px;
 		border-radius: 2px;
-		margin: 50px 10px;
-		display: inline-block;
+		margin: 10px 10px;
+		display: relative;
+		float: left;
+		overflow: hidden;
+		z-index: 1000;
 	}
+		.demo__wrap:active{
+			box-shadow: none;
+		}
 		.demo__title{
 			width: 100%;
 			float: left;
