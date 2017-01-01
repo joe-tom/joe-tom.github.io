@@ -1,21 +1,133 @@
+//
+	.
+	Ooo, look at you, looking at the source code.
+	Yea, we minified it to save a couple bytes.
+	Probably used the same amount of bytes writing this message, lol. 
+
+
 html
 	head
-		link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,100', rel='stylesheet', type='text/css')
-		link(href='https://fonts.googleapis.com/css?family=Raleway:400,600,300', rel='stylesheet', type='text/css')
-		link(rel='stylesheet', href='./public/css/home.css')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		style.
+			@import url('https://fonts.googleapis.com/css?family=Quicksand');
+			body{
+				text-align: center;
+			}
+			#body__inner{
+				max-width: 1000px;
+				width: 90%;
+				margin: auto;
+				margin-top: 20px;
+			}
+				#name{
+					margin-top: 2	0px;
+					font-size: 30px;
+					font-family: Quicksand;
+					float: left;
+					font-weight: 600;
+				}
+					#subname{
+						font-size: 10px;
+						font-family: Quicksand;
+						float: right;
+						margin-top: 30px;
+						margin-left: 10px;
+					}
+				#hero{
+					width: 100%;
+					height: 600px;
+					background: url(./mappng.png) top center no-repeat;
+					background-size: 100%;
+					line-height: 50px;
+					float: left;
+					margin-top: 100px;
+				}
+					#slogan{
+						width: 100%;
+						text-align: center;
+						font-family: Quicksand;
+						font-weight: 800;
+						font-size: 30px;
+						float: left;
+						color: #000;
+						margin-top: 100px;
+						text-shadow: 0px 0px 10px #FFF;
+					}
+				#section{
+					width: 100%;
+					border-top: 1px dashed #DDD;
+					float: left;
+				}
+				.section__header{
+					font-family: Quicksand;
+					font-size: 18px;
+					font-weight: 600;
+					float: left;
+					padding: 10px;
+				}
+					.section__blockWrap{
+						width: 100%;
+						text-align: center;
+						float: left;
+					}
+						.section__block{
+							height: 100px;
+							width: 100px;
+							border: 1px solid #DDD;
+							margin: 10px;
+							display: inline-block;
+							border-radius: 5px;
+						}
+						#nav{
+						float: right;
+						}
+						.navlet{
+							display: inline-block;
+							margin: 10px;
+							padding: 5px 15px;
+							border: 1px solid transparent;
+							border-bottom: 1px solid #DDD;
+							margin-bottom: 2px;
+							font-family: Quicksand;
+							font-weight: 400;
+							font-size: 11px;
+							color: #999;
+							cursor: pointer;
+							border-bottom-color: #8E44AD;
+						}
+						.navlet:hover{
+							border: 1px solid #8E44AD;
+							border-radius: 3px;
+							color: #8E44AD;
+							transition: border-color .5s;
+						}
 	body
-		#hero-welcomeText
-			span.largeWord Hey!
-			br
-			br
-			| 			Welcome to the very simple blog of Joe 
-			label.smallWord (Joseph)
-			| Thomas
-			#menu__list
-				.menu__item PROJECTS
-				.menu__item POSTS
-				.menu__item GITHUB
-		script(src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.3.1/velocity.min.js')
-		script(type='text/javascript', src='./public/js/outclick.js')
-		script(type='text/javascript', src='./public/js/home.js')
+		div#body__inner
+			div#name joe-tom
+				div#subname the software guy
+			div#nav
+				div.navlet About
+				div.navlet Projects
+				div.navlet Posts
+				div.navlet Contact
+			div#hero
+				div#slogan
+					span#slogan__adj Quality
+					|&nbsp;Code
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/baffle.js/0.3.6/baffle.min.js")
+		script.
+			var ADJ = ['Quality', 'The Best', 'Rad', 'Excellent']
+			var a = []
+			
+
+			setInterval(() => {
+				b = baffle('#slogan__adj',{
+					characters: '...',
+					speed: 100
+				}).start()
+				if (!a.length) {
+					a = ADJ.slice(0)
+				}
+				var letter = a.splice(~~Math.random() * 3,1)
+				b.text(c => letter[0]).reveal(1000)
+			},10000)
